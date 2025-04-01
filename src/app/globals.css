@@ -6,41 +6,39 @@
 
 @font-face {
   font-family: "Roboto-Medium";
-  src: url("/fonts/Roboto-Medium.ttf") format("truetype");
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Roboto-SemiBold";
-  src: url("/fonts/Roboto-SemiBold.ttf") format("truetype");
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Roboto-Bold";
-  src: url("/fonts/Roboto-Bold.ttf") format("truetype");
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
-:root{
-
+:root {
   /* Colors */
-  --color-primary:#0084FF;
-  --color-primary-700: #C2E2FF;
-  --color-primary-500: #E9F4FF;
-  --color-primary-background:#FBFDFF;
+  --color-primary: #0084ff;
+  --color-primary-700: #c2e2ff;
+  --color-primary-500: #e9f4ff;
+  --color-primary-background: #fbfdff;
 
-  --color-badge-basic:#85A3BC;
-  --color-badge-standard:#C1951A;
-  --color-badge-premium:#000000;
+  --color-badge-basic: #85a3bc;
+  --color-badge-standard: #c1951a;
+  --color-badge-premium: #000000;
 
   --color-dark: #000000;
   --color-dark-700: #484848;
-  --color-dark-500 : #D9D9D9;
-  --color-dark-300: #E1E1E1;
+  --color-dark-500: #d9d9d9;
+  --color-dark-300: #e1e1e1;
 
-  --color-light: #FFFFFF;
-
+  --color-light: #ffffff;
 
   /* Fonts */
   --font-heading-desktop: normal 700 4rem "Roboto-Bold", sans-serif;
@@ -48,19 +46,19 @@
   --font-heading-mobile: normal 700 2rem "Roboto-Bold", sans-serif;
 
   --font-title-desktop: normal 700 3rem "Roboto-Bold", sans-serif;
-  --font-title-tablet:  normal 700 2rem "Roboto-Bold", sans-serif;
+  --font-title-tablet: normal 700 2rem "Roboto-Bold", sans-serif;
   --font-title-mobile: normal 700 1.5rem "Roboto-Bold", sans-serif;
 
   --font-subtitle-desktop: normal 700 2rem "Roboto-Bold", sans-serif;
-  --font-subtitle-tablet:  normal 700 1.5rem "Roboto-Bold", sans-serif;
+  --font-subtitle-tablet: normal 700 1.5rem "Roboto-Bold", sans-serif;
   --font-subtitle-mobile: normal 700 1.25rem "Roboto-Bold", sans-serif;
 
-  --font-text-desktop: normal 400 1rem "Roboto-Regular", sans-serif; 
-  --font-text-tablet:  normal 400 0.875rem "Roboto-Regular", sans-serif;
-  --font-text-mobile:  normal 400 0.75rem "Roboto-Regular", sans-serif;
+  --font-text-desktop: normal 400 1rem "Roboto-Regular", sans-serif;
+  --font-text-tablet: normal 400 0.875rem "Roboto-Regular", sans-serif;
+  --font-text-mobile: normal 400 0.75rem "Roboto-Regular", sans-serif;
 
-  --font-button-desktop: normal 600 1rem "Roboto-SemiBold", sans-serif;
-  --font-button-mobile: normal 600 0.875rem "Roboto-SemiBold", sans-serif;
+  --font-button-desktop: normal 700 1rem "Roboto-Bold", sans-serif;
+  --font-button-mobile: normal 700 0.875rem "Roboto-Bold", sans-serif;
 
   --font-nav-item: normal 500 0.812rem "Roboto-Medium", sans-serif;
 
@@ -68,18 +66,20 @@
   --font-text-bold-20: normal 700 1.25rem "Roboto-Bold", sans-serif;
   --font-text-bold-16: normal 700 1rem "Roboto-Bold", sans-serif;
 
+  --font-text-medium-24: normal 500 1.5rem "Roboto-Medium", sans-serif;
   --font-text-medium-20: normal 500 1.25rem "Roboto-Medium", sans-serif;
   --font-text-medium-16: normal 500 1rem "Roboto-Medium", sans-serif;
 
-  --font-text-regular-16: normal 500 1rem "Roboto-Medium", sans-serif;
-  --font-text-regular-14: normal 500 0.875rem "Roboto-Medium", sans-serif;
+  --font-text-regular-20: normal 400 1.25rem "Roboto-Medium", sans-serif;
+  --font-text-regular-16: normal 400 1rem "Roboto-Medium", sans-serif;
+  --font-text-regular-14: normal 400 0.875rem "Roboto-Medium", sans-serif;
 
   --font-text-semibold-32: normal 600 2rem "Roboto-SemiBold", sans-serif;
   --font-text-semibold-24: normal 600 1.5rem "Roboto-SemiBold", sans-serif;
   --font-text-semibold-20: normal 600 1.25rem "Roboto-SemiBold", sans-serif;
   --font-text-semibold-16: normal 600 1rem "Roboto-SemiBold", sans-serif;
   --font-text-semibold-14: normal 600 0.875rem "Roboto-SemiBold", sans-serif;
-  --font-text-semibold-14: normal 600 0.75rem "Roboto-SemiBold", sans-serif;
+  --font-text-semibold-12: normal 600 0.75rem "Roboto-SemiBold", sans-serif;
 
   /* Spacings */
 
