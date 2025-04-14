@@ -1,0 +1,77 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.title-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  gap: 8px;
+}
+
+.title-section--left {
+  align-items: flex-start;
+}
+
+.title-section__subtitle {
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font: var(--font-text-semibold-12);
+}
+
+.title-section__title {
+  text-transform: uppercase;
+  color: var(--color-dark);
+  font: var(--font-title-mobile);
+}
+
+.title-section--large {
+  .title-section__title {
+    font: var(--font-heading-mobile);
+  }
+}
+
+.title-section {
+  .title-section__title {
+    color: var(--color-light);
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .title-section {
+    gap: 12px;
+  }
+
+  .title-section__subtitle {
+    font: var(--font-text-semibold-14);
+  }
+
+  .title-section__title {
+    font: var(--font-title-tablet);
+  }
+
+  .title-section--large {
+    .title-section__title {
+      font: var(--font-heading-tablet);
+    }
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .title-section {
+    gap: 16px;
+  }
+
+  .title-section__subtitle {
+    font: var(--font-text-semibold-16);
+  }
+
+  .title-section__title {
+    font: var(--font-title-desktop);
+  }
+
+  .title-section--large {
+    .title-section__title {
+      font: var(--font-heading-desktop);
+    }
+  }
+}

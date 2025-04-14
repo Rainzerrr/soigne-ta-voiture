@@ -1,0 +1,102 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.homepage-intro-wrapper {
+  display: flex;
+  padding: 20px 0px;
+  gap: 24px;
+  height: 541px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: stretch;
+}
+
+.homepage-intro-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 541px;
+  background-image: url("/assets/images/homepage-background.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(10%) contrast(102%);
+  z-index: -1;
+}
+
+.homepage-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.homepage-intro__description {
+  color: var(--color-light);
+  font: var(--font-text-medium-12);
+}
+
+.homepage-intro__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .homepage-intro-wrapper {
+    height: 603px;
+  }
+
+  .homepage-intro-wrapper::before {
+    height: 603px;
+  }
+
+  .homepage-intro {
+    width: 616px;
+  }
+
+  .homepage-intro__description {
+    font: var(--font-text-medium-14);
+  }
+
+  .homepage-intro__buttons {
+    flex-direction: row;
+  }
+
+  .homepage-intro__button {
+    width: fit-content;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .homepage-intro-wrapper {
+    height: 761px;
+    width: 100%;
+  }
+
+  .homepage-intro-wrapper::before {
+    height: 761px;
+  }
+
+  .homepage-intro {
+    width: 815px;
+  }
+
+  .homepage-intro__description {
+    font: var(--font-text-medium-16);
+  }
+
+  .homepage-intro__buttons {
+    flex-direction: row;
+  }
+
+  .homepage-intro__button {
+    width: fit-content;
+  }
+}

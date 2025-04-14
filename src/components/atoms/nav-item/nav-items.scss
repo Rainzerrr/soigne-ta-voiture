@@ -1,0 +1,28 @@
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-decoration: none;
+  width: fit-content;
+  font: var(--font-nav-item);
+  color: var(--color-light);
+  border-radius: 2px;
+}
+
+.nav-item--fullwidth {
+  width: 100%;
+}
+
+.nav-item--active {
+  color: var(--color-primary);
+}
+
+.nav-item--outlined {
+  outline: 1px solid var(--color-light);
+  outline-offset: -1px;
+}
+
+.nav-item--filled {
+  background-color: var(--color-primary);
+}

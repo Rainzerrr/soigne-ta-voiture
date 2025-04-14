@@ -1,0 +1,25 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.container-wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .container-wrapper {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .container-wrapper {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}

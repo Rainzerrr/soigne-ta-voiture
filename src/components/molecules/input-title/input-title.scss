@@ -1,0 +1,56 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.input-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.input-title__title {
+  color: var(--color-dark);
+  font: var(--font-text-regular-14);
+}
+
+.input-title__input-icon {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 1px solid var(--color-dark-300);
+}
+
+.input-title__input-icon:hover {
+  background-color: var(--color-dark-100);
+}
+
+.input-title__icon {
+  fill: var(--color-dark-300);
+}
+
+.input-title__input {
+  all: unset;
+  color: var(--color-dark);
+  font: var(--font-text-regular-14);
+  flex: 1;
+}
+
+.input-title__input::placeholder {
+  color: var(--color-dark-500);
+  font: var(--font-text-regular-14);
+}
+
+.input-title__input::placeholder:focus-visible {
+  border: 1px solid var(--color-dark);
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .input-title__input,
+  .input-title__input::placeholder,
+  .input-title__title {
+    font: var(--font-text-regular-16);
+  }
+}

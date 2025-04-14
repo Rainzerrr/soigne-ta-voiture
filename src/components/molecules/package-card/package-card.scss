@@ -1,0 +1,152 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.package-card {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+}
+
+.package-card--basic {
+  background-color: var(--color-badge-basic);
+}
+.package-card--standard {
+  background-color: var(--color-badge-standard);
+}
+.package-card--premium {
+  background-color: var(--color-badge-premium);
+}
+
+.package-card__badge-image {
+  position: relative;
+}
+
+.package-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 900;
+}
+
+.package-card__image {
+  width: 100%;
+  object-fit: cover;
+  height: 190px;
+  filter: brightness(50%) contrast(110%);
+}
+
+.package-card__content {
+  display: flex;
+  padding: 20px 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.package-card__infos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.package-card__title-price {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  justify-content: space-between;
+}
+
+.package-card__title {
+  color: var(--color-light);
+  font: var(--font-text-semibold-20);
+}
+
+.package-card__price {
+  color: var(--color-light);
+  font: var(--font-heading-mobile);
+}
+
+.package-card__features {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.package-card__feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+}
+
+.package-card__feature__label {
+  color: var(--color-light);
+  font: var(--font-text-regular-12);
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .package-card__title {
+    font: var(--font-text-semibold-24);
+  }
+
+  .package-card__price {
+    font: var(--font-heading-tablet);
+  }
+
+  .package-card__content {
+    flex: 1;
+  }
+
+  .package-card__feature__label {
+    font: var(--font-text-regular-14);
+  }
+
+  .package-card {
+    flex-direction: row;
+    width: 751;
+  }
+
+  .package-card__image {
+    width: 300px;
+    height: 100%;
+  }
+
+  .package-card__badge {
+    top: 20px;
+    left: 20px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .package-card__title {
+    font: var(--font-text-semibold-32);
+  }
+
+  .package-card__price {
+    font: var(--font-heading-desktop);
+  }
+
+  .package-card__feature__label {
+    font: var(--font-text-regular-16);
+  }
+
+  .package-card__content {
+    padding: 20px 24px;
+  }
+
+  .package-card {
+    flex-direction: column;
+    width: 430px;
+  }
+
+  .package-card__image {
+    width: 100%;
+    height: 245px;
+  }
+}

@@ -1,0 +1,83 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.badge {
+  position: relative;
+}
+
+.badge__spark1 {
+  position: absolute;
+  bottom: -3px;
+  left: 4px;
+  z-index: 990;
+  width: 12px;
+  height: 12px;
+}
+
+.badge__spark2 {
+  position: absolute;
+  top: -4px;
+  right: -9px;
+  z-index: 990;
+  width: 16px;
+  height: 16px;
+}
+
+.badge {
+  font: var(--font-text-semibold-12);
+  padding: 4px 16px;
+  border-radius: 1111px;
+  width: fit-content;
+}
+
+.badge--gold {
+  color: var(--color-light);
+  background-color: var(--color-badge-standard);
+}
+
+.badge--black {
+  color: var(--color-light);
+  background-color: var(--color-badge-premium);
+}
+
+.badge--blue {
+  color: var(--color-light);
+  background-color: var(--color-primary);
+}
+
+.badge--gray {
+  color: var(--color-light);
+  background-color: var(--color-badge-basic);
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .badge {
+    font: var(--font-text-semibold-14);
+  }
+
+  .badge__spark1 {
+    left: -1px;
+    bottom: -4px;
+  }
+
+  .badge__spark2 {
+    right: -10px;
+    top: -5px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .badge {
+    font: var(--font-text-semibold-16);
+  }
+
+  .badge__spark1 {
+    bottom: -1px;
+  }
+
+  .badge__spark2 {
+    right: -2px;
+    top: -5px;
+  }
+}

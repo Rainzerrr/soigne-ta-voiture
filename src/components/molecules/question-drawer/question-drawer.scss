@@ -1,0 +1,51 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.question-drawer {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  outline: 1px solid var(--color-dark);
+  outline-offset: -1px;
+}
+
+.question-drawer__question-chevron {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.question-drawer__question {
+  font: var(--font-text-medium-16);
+  color: var(--color-dark);
+}
+
+.question-drawer__answer {
+  font: var(--font-text-regular-14);
+  color: var(--color-dark);
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .question-drawer {
+    outline: 2px solid var(--color-dark);
+    outline-offset: -2px;
+  }
+
+  .question-drawer__question {
+    font: var(--font-text-medium-20);
+  }
+
+  .question-drawer__answer {
+    font: var(--font-text-regular-16);
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .question-drawer__question {
+    font: var(--font-text-medium-24);
+  }
+
+  .question-drawer__answer {
+    font: var(--font-text-regular-20);
+  }
+}

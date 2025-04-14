@@ -1,0 +1,29 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.icon--clickable {
+  cursor: pointer;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+}
