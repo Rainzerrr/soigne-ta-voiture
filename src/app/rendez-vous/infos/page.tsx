@@ -1,4 +1,4 @@
-"use client";
+"use ";
 import RendezVousInfos from "@/pages/rendez-vous/infos/infos";
 
 const page = () => <RendezVousInfos />;

@@ -1,15 +1,22 @@
 "use client";
 
-import { createContext, useContext, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  Dispatch,
+  SetStateAction,
+} from "react";
 
 interface RendezVousContextType {
   currentMilestone: number;
-  setCurrentMilestone: (milestoneIndex: number) => void;
+  setCurrentMilestone: (index: number) => void;
 }
 
-const RendezVousContext = createContext<RendezVousContextType | undefined>(
-  undefined
-);
+const RendezVousContext = createContext<RendezVousContextType>({
+  currentMilestone: 1,
+  setCurrentMilestone: () => null,
+});
 
 interface RendezVousProviderProps extends RendezVousContextType {
   children: ReactNode;
@@ -32,7 +39,6 @@ export const RendezVousProvider = ({
 export const useRendezVous = () => {
   const context = useContext(RendezVousContext);
   if (!context) {
-    throw new Error("useRendezVous must be used within a RendezVousProvider");
   }
   return context;
 };
