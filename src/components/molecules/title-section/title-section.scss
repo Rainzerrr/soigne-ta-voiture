@@ -24,13 +24,20 @@
   font: var(--font-title-mobile);
 }
 
+.title-section--center {
+  justify-content: center;
+  .title-section__title {
+    text-align: center;
+  }
+}
+
 .title-section--large {
   .title-section__title {
     font: var(--font-heading-mobile);
   }
 }
 
-.title-section {
+.title-section--light {
   .title-section__title {
     color: var(--color-light);
   }

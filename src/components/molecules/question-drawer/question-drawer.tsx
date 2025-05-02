@@ -1,7 +1,7 @@
 "use client";
 import React, { FC, useState } from "react";
-import Icon from "../../atoms/icon/icon";
 import "./question-drawer.scss";
+import { Icon } from "@/components/atoms/icon/icon";
 
 interface QuestionDrawerProps {
   className?: string;
@@ -19,10 +19,14 @@ const QuestionDrawer: FC<QuestionDrawerProps> = ({
   const toggleDrawer = () => setIsOpened(!isOpened);
 
   return (
-    <div className={`question-drawer ${className}`}>
-      <div className="question-drawer__question-chevron" onClick={toggleDrawer}>
+    <div className={`question-drawer ${className}`} onClick={toggleDrawer}>
+      <div className="question-drawer__question-chevron">
         <p className="question-drawer__question">{question}</p>
-        <Icon name={isOpened ? "close" : "open"} />
+        <Icon
+          name={`chevron-${isOpened ? "up" : "down"}`}
+          fill="black"
+          stroke="black"
+        />
       </div>
       {isOpened && <p className="question-drawer__answer">{answer}</p>}
     </div>
@@ -30,3 +34,4 @@ const QuestionDrawer: FC<QuestionDrawerProps> = ({
 };
 
 export default QuestionDrawer;
+export type { QuestionDrawerProps };

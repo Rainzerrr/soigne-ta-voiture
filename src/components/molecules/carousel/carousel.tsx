@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useRef, useState } from "react";
 import { Swiper } from "swiper/react";
 import SwiperCore from "swiper";
@@ -22,6 +21,7 @@ export type CarouselProps = {
   direction?: "horizontal" | "vertical";
   autoPlay?: boolean;
   delay?: number;
+  swiperId: string;
   infiniteLoop?: boolean;
   effect?: string;
   fillCarousel?: boolean;
@@ -37,6 +37,7 @@ export default function Carousel({
   direction,
   autoPlay,
   delay,
+  swiperId,
   infiniteLoop,
   effect,
   fillCarousel,
@@ -46,23 +47,9 @@ export default function Carousel({
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
-  const onBeforeInit = (Swiper: SwiperCore): void => {
-    if (typeof Swiper.params.navigation !== "boolean") {
-      const navigation = Swiper.params.navigation;
-      navigation!.prevEl = navPrevButton.current;
-      navigation!.nextEl = navNextButton.current;
-    }
-  };
-
-  const updateButtonsState = (prev: any, next: any) => {
-    setIsBeginning(prev.current.classList.contains("swiper-button-disabled"));
-    setIsEnd(next.current.classList.contains("swiper-button-disabled"));
-  };
-
   return (
     <div className={`carousel ${className || ""}`}>
       <Swiper
-        onBeforeInit={onBeforeInit}
         breakpoints={breakpoints}
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerViews}
@@ -74,8 +61,8 @@ export default function Carousel({
         effect={effect}
         navigation={{
           enabled: true,
-          nextEl: ".swiper-navigation-next",
-          prevEl: ".swiper-navigation-prev",
+          nextEl: `.swiper-next-${swiperId}`,
+          prevEl: `.swiper-prev-${swiperId}`,
         }}
       >
         {children}
@@ -85,25 +72,17 @@ export default function Carousel({
         <button
           aria-label="Navigation précédent"
           ref={navPrevButton}
-          className={`swiper-navigation-prev nav-btn prev ${
-            !isBeginning ? "hover" : ""
-          }`}
-          onClick={() => {
-            updateButtonsState(navPrevButton, navNextButton);
-          }}
+          className={`swiper-prev swiper-prev-${swiperId} nav-btn`}
         >
-          <Icon name="arrow-left" fill={isBeginning ? "#dedede" : "black"} />
+          <Icon name="arrow-left" fill="black" />
         </button>
 
         <button
           aria-label="Navigation suivant"
           ref={navNextButton}
-          className={`swiper-navigation-next nav-btn next ${
-            !isEnd ? "hover" : ""
-          }`}
-          onClick={() => updateButtonsState(navPrevButton, navNextButton)}
+          className={`swiper-next swiper-next-${swiperId} nav-btn`}
         >
-          <Icon name="arrow-right" fill={isEnd ? "#dedede" : "black"} />
+          <Icon name="arrow-right" fill="black" />
         </button>
       </div>
       {/* 

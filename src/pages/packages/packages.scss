@@ -1,0 +1,20 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.packages {
+  display: flex;
+  flex-direction: column;
+}
+
+.packages__content {
+  display: flex;
+  padding: 32px 0px;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .packages__content {
+    padding: 64px 0px;
+  }
+}

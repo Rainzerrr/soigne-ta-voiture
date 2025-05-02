@@ -1,0 +1,21 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.milestones {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  max-width: 500px;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .milestones {
+    max-width: 580px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .milestones {
+    width: 928px;
+    max-width: unset;
+  }
+}

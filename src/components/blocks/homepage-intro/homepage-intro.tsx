@@ -1,9 +1,13 @@
+"use client";
 import TitleSection from "@/components/molecules/title-section/title-section";
 import Button from "@/components/molecules/button/button";
 import "./homepage-intro.scss";
 import ContentWrapper from "@/utils/page-wrapper/content-wrapper";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const HomepageIntro = () => {
+  const router = useRouter();
   return (
     <ContentWrapper>
       <div className="homepage-intro-wrapper">
@@ -26,7 +30,9 @@ const HomepageIntro = () => {
               label="PRENDRE RENDEZ-VOUS"
               theme="primary"
               fullWidth
+              onClick={() => router.push("/rendez-vous/packages")}
             />
+
             <Button
               className="homepage-intro__button"
               label="PARCOURIR LES OFFRES"

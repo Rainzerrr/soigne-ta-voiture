@@ -1,0 +1,33 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.prestations {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.prestations__carousel {
+  width: 100%;
+  max-width: calc(100svw - 32px);
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .prestations {
+    gap: 40px;
+  }
+
+  .prestations__carousel {
+    max-width: calc(100svw - 64px);
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .prestations {
+    gap: 40px;
+  }
+
+  .prestations__carousel {
+    width: calc(100svw - 96px);
+    max-width: 1344px;
+  }
+}

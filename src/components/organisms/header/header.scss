@@ -4,11 +4,11 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  padding: 20px 16px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
+  z-index: 998;
 }
 
 .header__top-section {
@@ -16,6 +16,7 @@
   align-items: center;
   width: 100%;
   justify-content: space-between;
+  padding: 20px 0px;
 }
 
 .header__logo-wrapper {
@@ -28,7 +29,6 @@
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 999;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -39,6 +39,7 @@
   transform: translateX(100%);
   background-color: rgb(26, 23, 39);
   overflow: hidden;
+  z-index: 999;
 
   transition: transform 0.3s ease-in-out;
 }
@@ -82,13 +83,16 @@
   gap: 8px;
 }
 
+.header__box-shadow {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
 @media screen and (min-width: bp.$breakpoint-small) {
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
-    padding: 20px 32px;
   }
 
   .header__menu-drawer {
@@ -98,6 +102,7 @@
   }
 
   .header__menu-drawer__overlay {
+    pointer-events: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -110,20 +115,16 @@
   }
 
   .header__menu-drawer__overlay--visible {
-    display: flex;
+    pointer-events: auto;
     opacity: 0.7;
     z-index: 998;
   }
 }
 
 @media screen and (min-width: bp.$breakpoint-medium) {
-  .header {
-    padding: 20px 48px;
-  }
-
   .header__nav-items {
     flex-direction: row;
-    gap: 8px;
+    gap: unset;
   }
 
   .header__account-btns {
@@ -138,13 +139,5 @@
 
   .header__menu-drawer__overlay {
     display: none;
-  }
-}
-
-@media screen and (min-width: bp.$breakpoint-large) {
-  .header {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1440px;
   }
 }

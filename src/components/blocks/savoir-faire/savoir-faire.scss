@@ -1,0 +1,127 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.notre-savoir-faire {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-template-vertical-mobile);
+  align-self: stretch;
+}
+
+.notre-savoir-faire__title-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.notre-savoir-faire__title-section__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.notre-savoir-faire__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.notre-savoir-faire__content__text {
+  color: var(--color-dark-700);
+  font: var(--font-text-regular-12);
+}
+
+.notre-savoir-faire__content__text--bold {
+  font: var(--font-text-bold-12);
+  margin: 0.5ch;
+}
+
+.notre-savoir-faire__content__carousel {
+  position: relative;
+  width: calc(100vw - 32px);
+  z-index: 1;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .notre-savoir-faire {
+    gap: var(--spacing-template-vertical-tablet);
+  }
+  .notre-savoir-faire__title-section__buttons {
+    flex-direction: row;
+    .notre-savoir-faire__title-section__button {
+      width: fit-content;
+    }
+  }
+
+  .notre-savoir-faire__content__carousel {
+    width: calc(100svw - 64px);
+    max-width: 700px;
+  }
+
+  .notre-savoir-faire__content__text {
+    font: var(--font-text-regular-14);
+  }
+
+  .notre-savoir-faire__content__text--bold {
+    font: var(--font-text-bold-14);
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .notre-savoir-faire {
+    gap: var(--spacing-template-vertical-tablet);
+  }
+
+  .notre-savoir-faire__title-section__button {
+    width: fit-content;
+  }
+
+  .notre-savoir-faire__content__carousel {
+    max-width: 700px;
+  }
+
+  .notre-savoir-faire__content {
+    gap: 48px;
+  }
+
+  .notre-savoir-faire__content__text {
+    font: var(--font-text-regular-20);
+  }
+
+  .notre-savoir-faire__content__text--bold {
+    font: var(--font-text-bold-20);
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-large) {
+  .notre-savoir-faire {
+    gap: 40px;
+  }
+
+  .notre-savoir-faire__title-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .notre-savoir-faire--savoir-faire {
+    .notre-savoir-faire__title-section {
+      justify-content: center;
+    }
+  }
+
+  .notre-savoir-faire .notre-savoir-faire__title-section__buttons {
+    align-items: flex-end;
+  }
+
+  .notre-savoir-faire__content {
+    flex-direction: row;
+    gap: 100px;
+  }
+}

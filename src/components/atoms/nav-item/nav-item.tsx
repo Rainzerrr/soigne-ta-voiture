@@ -6,8 +6,10 @@ interface NavItemProps {
   label: string;
   url: string;
   isActive?: boolean;
-  variant?: "default" | "outlined" | "filled";
+  color?: "light" | "dark";
+  variant?: "default" | "secondary" | "tertiary" | "filled";
   fullwidth?: boolean;
+  onClick: () => void;
 }
 
 const NavItem: FC<NavItemProps> = ({
@@ -15,16 +17,19 @@ const NavItem: FC<NavItemProps> = ({
   url,
   isActive,
   variant = "default",
+  color = "light",
   fullwidth,
+  onClick,
 }) => {
   return (
     <Link
-      className={`nav-item nav-item--${variant} ${
+      className={`nav-item nav-item--${variant} nav-item--${color} ${
         isActive ? "nav-item--active" : ""
       } ${fullwidth ? "nav-item--fullwidth" : ""}`}
       href={url}
+      onClick={() => onClick()}
     >
-      <span>{label}</span>
+      <span className="nav-item__label">{label}</span>
     </Link>
   );
 };

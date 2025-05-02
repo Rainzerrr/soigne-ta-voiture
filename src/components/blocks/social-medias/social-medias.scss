@@ -1,0 +1,58 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.social-medias {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-self: stretch;
+  align-items: center;
+}
+
+.social-medias__socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.social-medias__socials__container {
+  display: flex;
+  gap: 30px;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .social-medias {
+    gap: 40px;
+  }
+  .social-medias__socials {
+    gap: 40px;
+  }
+
+  .social-medias__socials__container {
+    gap: 40px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .social-medias {
+    gap: 48px;
+  }
+
+  .social-medias__socials {
+    gap: 64px;
+  }
+
+  .social-medias__socials__container {
+    gap: 64px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-large) {
+  .social-medias__socials {
+    padding: 0px 200px;
+  }
+}

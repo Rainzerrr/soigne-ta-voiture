@@ -1,0 +1,38 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.form {
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 16px;
+  background-color: var(--color-light);
+}
+
+.form__identity,
+.form__contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  align-self: stretch;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .form {
+    padding: 40px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .form__identity,
+  .form__contact {
+    flex-direction: row;
+    gap: 16px;
+    align-self: stretch;
+  }
+}

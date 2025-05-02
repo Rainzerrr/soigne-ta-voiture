@@ -1,0 +1,27 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.rendez-vous {
+  display: flex;
+  flex-direction: column;
+}
+
+.rendez-vous__content {
+  display: flex;
+  padding: 64px 0px;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .rendez-vous__content {
+    gap: 48px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .rendez-vous__content {
+    gap: 64px;
+  }
+}

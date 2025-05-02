@@ -3,7 +3,7 @@
 .package-card {
   display: flex;
   flex-direction: column;
-  width: 360px;
+  width: 100%;
 }
 
 .package-card--basic {
@@ -101,6 +101,8 @@
 
   .package-card__content {
     flex: 1;
+    gap: 24px;
+    padding: 20px 24px;
   }
 
   .package-card__feature__label {
@@ -109,7 +111,6 @@
 
   .package-card {
     flex-direction: row;
-    width: 751;
   }
 
   .package-card__image {
@@ -120,6 +121,14 @@
   .package-card__badge {
     top: 20px;
     left: 20px;
+  }
+
+  .package-card__infos {
+    gap: 24px;
+  }
+
+  .package-card__features {
+    gap: 32px;
   }
 }
 
@@ -148,5 +157,13 @@
   .package-card__image {
     width: 100%;
     height: 245px;
+  }
+
+  .package-card__infos {
+    gap: 40px;
+  }
+
+  .package-card__content {
+    gap: 40px;
   }
 }

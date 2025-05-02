@@ -63,11 +63,12 @@
   --font-button-desktop: normal 700 1rem "Roboto-Bold", sans-serif;
   --font-button-mobile: normal 700 0.875rem "Roboto-Bold", sans-serif;
 
-  --font-nav-item: normal 500 0.875rem "Roboto-Medium", sans-serif;
+  --font-nav-item: normal 500 1rem "Roboto-Medium", sans-serif;
 
   --font-text-bold-24: normal 700 1.5rem "Roboto-Bold", sans-serif;
   --font-text-bold-20: normal 700 1.25rem "Roboto-Bold", sans-serif;
   --font-text-bold-16: normal 700 1rem "Roboto-Bold", sans-serif;
+  --font-text-bold-14: normal 700 0.875rem "Roboto-Bold", sans-serif;
   --font-text-bold-12: normal 700 0.75rem "Roboto-Bold", sans-serif;
 
   --font-text-medium-24: normal 500 1.5rem "Roboto-Medium", sans-serif;
@@ -90,9 +91,9 @@
 
   /* Spacings */
 
-  --spacing-template-vertical-desktop: 64px;
-  --spacing-template-vertical-tablet: 48px;
-  --spacing-template-vertical-mobile: 32px;
+  --spacing-template-vertical-desktop: 32px;
+  --spacing-template-vertical-tablet: 24px;
+  --spacing-template-vertical-mobile: 16px;
 
   --spacing-template-horizontal-desktop: 48px;
   --spacing-template-horizontal-tablet: 32px;

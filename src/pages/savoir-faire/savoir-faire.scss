@@ -1,0 +1,29 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.savoir-faire {
+  display: flex;
+  flex-direction: column;
+}
+.savoir-faire__content {
+  display: flex;
+  padding: 32px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .savoir-faire__content {
+    gap: 64px;
+  }
+  .savoir-faire__content {
+    padding: 48px 0px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .savoir-faire__content {
+    padding: 64px 0px;
+  }
+}

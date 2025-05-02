@@ -1,0 +1,61 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.packages-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-template-vertical-mobile);
+  align-self: stretch;
+}
+
+.packages-section__title-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.packages-section__title-section__desc {
+  font: var(--font-text-medium-12);
+  color: var(--color-dark-700);
+}
+
+.packages-section__packages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .packages-section {
+    gap: var(--spacing-template-vertical-tablet);
+  }
+  .packages-section__title-section__desc {
+    font: var(--font-text-medium-14);
+    width: 503px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .packages-section {
+    gap: var(--spacing-template-vertical-desktop);
+  }
+
+  .packages-section__title-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .packages-section__title-section__desc {
+    font: var(--font-text-medium-16);
+  }
+
+  .packages-section__packages {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 20px;
+  }
+}

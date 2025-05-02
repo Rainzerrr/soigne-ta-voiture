@@ -19,3 +19,4 @@ const BeforeAfter: FC<BeforeAfterProps> = ({ beforeCard, afterCard }) => {
 };
 
 export default BeforeAfter;
+export type { BeforeAfterProps };

@@ -7,21 +7,24 @@
   gap: 16px;
   outline: 1px solid var(--color-dark);
   outline-offset: -1px;
+  align-self: stretch;
+  border-radius: 4px;
 }
 
 .question-drawer__question-chevron {
   display: flex;
+  gap: 12px;
   justify-content: space-between;
   cursor: pointer;
 }
 
 .question-drawer__question {
-  font: var(--font-text-medium-16);
+  font: var(--font-text-medium-14);
   color: var(--color-dark);
 }
 
 .question-drawer__answer {
-  font: var(--font-text-regular-14);
+  font: var(--font-text-regular-12);
   color: var(--color-dark);
 }
 
@@ -32,20 +35,20 @@
   }
 
   .question-drawer__question {
-    font: var(--font-text-medium-20);
+    font: var(--font-text-medium-16);
   }
 
   .question-drawer__answer {
-    font: var(--font-text-regular-16);
+    font: var(--font-text-regular-14);
   }
 }
 
 @media screen and (min-width: bp.$breakpoint-medium) {
   .question-drawer__question {
-    font: var(--font-text-medium-24);
+    font: var(--font-text-medium-20);
   }
 
   .question-drawer__answer {
-    font: var(--font-text-regular-20);
+    font: var(--font-text-regular-16);
   }
 }

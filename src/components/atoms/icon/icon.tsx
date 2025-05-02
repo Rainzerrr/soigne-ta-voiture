@@ -7,6 +7,7 @@ export interface IconProps {
   name: string;
   fill?: string;
   onClick?: any;
+  stroke?: string;
 }
 
 export const Icon = ({
@@ -14,6 +15,7 @@ export const Icon = ({
   className,
   name,
   fill = "white",
+  stroke,
   onClick,
 }: IconProps): React.ReactElement => {
   return (
@@ -28,7 +30,7 @@ export const Icon = ({
           xlinkHref={`/assets/icons/symbol-defs.svg#icon-${name}`}
           width="100%"
           height="100%"
-          style={{ fill: fill }}
+          style={{ fill: fill, stroke: stroke }}
           className={className}
         />
       </svg>

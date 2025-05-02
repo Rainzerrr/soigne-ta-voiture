@@ -2,12 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 10px 20px;
   text-decoration: none;
   width: fit-content;
   font: var(--font-nav-item);
   color: var(--color-light);
   border-radius: 2px;
+}
+
+.nav-item--dark {
+  color: var(--color-dark);
 }
 
 .nav-item--fullwidth {
@@ -18,9 +22,18 @@
   color: var(--color-primary);
 }
 
-.nav-item--outlined {
+.nav-item--secondary {
   outline: 1px solid var(--color-light);
   outline-offset: -1px;
+}
+
+.nav-item--tertiary {
+  outline: 1px solid var(--color-dark);
+  outline-offset: -1px;
+
+  .nav-item__label {
+    color: var(--color-dark);
+  }
 }
 
 .nav-item--filled {
