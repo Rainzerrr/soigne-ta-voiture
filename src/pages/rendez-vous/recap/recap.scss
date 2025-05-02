@@ -1,0 +1,172 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.rendez-vous__recap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  align-self: stretch;
+}
+.rendez-vous__recap__title-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+}
+
+.rendez-vous__recap__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  align-self: stretch;
+}
+.rendez-vous__recap__content__package {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+}
+
+.rendez-vous__recap__content__package-label {
+  color: var(--color-dark);
+  font: var(--font-text-bold-20);
+}
+
+.rendez-vous__recap__content__form-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  align-self: stretch;
+}
+
+.rendez-vous__recap__content__date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.rendez-vous__recap__content__infos__date__label {
+  color: var(--color-dark);
+  font: var(--font-text-medium-14);
+}
+
+.rendez-vous__recap__content__infos-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+  width: 100%;
+}
+
+.rendez-vous__recap__content__infos__title {
+  color: var(--color-dark);
+  font: var(--font-text-bold-20);
+}
+.rendez-vous__recap__content__infos__label {
+  color: var(--color-dark);
+  font: var(--font-text-bold-14);
+}
+.rendez-vous__recap__content__infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 22px;
+  width: 100%;
+}
+.rendez-vous__recap__content__infos__group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 22px;
+  align-self: stretch;
+}
+.rendez-vous__recap__content__infos__item,
+.rendez-vous__recap__content__infos__comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+}
+.rendez-vous__recap__content__infos__value {
+  color: var(--color-dark);
+  font: var(--font-text-medium-14);
+}
+
+.rendez-vous__recap__title-section__button-hide {
+  display: none !important;
+}
+
+.toast {
+  background-color: green !important;
+  color: var(--color-light) !important;
+  font: var(--font-text-medium-14);
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .rendez-vous__recap__content__infos__title {
+    font: var(--font-text-bold-24);
+  }
+  .rendez-vous__recap__content__infos__label {
+    font: var(--font-text-bold-16);
+  }
+
+  .rendez-vous__recap__content__infos {
+    gap: 16px;
+    width: fit-content;
+  }
+
+  .rendez-vous__recap__content__infos__group {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .rendez-vous__recap__content__infos__value {
+    font: var(--font-text-medium-16);
+  }
+
+  .rendez-vous__recap__content__infos__item {
+    flex-direction: row;
+    gap: 14px;
+  }
+
+  .rendez-vous__recap__content__infos__comment {
+    flex-direction: column;
+  }
+
+  .rendez-vous__recap__content__button {
+    width: fit-content;
+  }
+
+  .rendez-vous__recap__content__infos__date__label {
+    font: var(--font-text-medium-16);
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .rendez-vous__recap__title-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rendez-vous__recap__content {
+    flex-direction: row;
+    justify-content: center;
+    gap: 96px;
+  }
+
+  .rendez-vous__recap__title-section__button-hide {
+    display: unset !important;
+    opacity: 0;
+  }
+}

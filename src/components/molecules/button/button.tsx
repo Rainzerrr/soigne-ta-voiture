@@ -24,9 +24,9 @@ const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <div
-      className={`${className} button button--${theme} ${
+      className={` button button--${theme} ${
         fullWidth ? "button--fullwidth" : ""
-      }`}
+      } ${className}`}
       onClick={() => (onClick ? onClick() : null)}
     >
       {leftIcon && <Icon name={leftIcon} />}

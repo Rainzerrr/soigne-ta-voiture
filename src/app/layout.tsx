@@ -3,6 +3,7 @@ import Header from "@/components/organisms/header/header";
 import "@/app/globals.scss";
 import { usePathname } from "next/navigation";
 import Footer from "@/components/blocks/footer/footer";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
+        <Toaster />
         <Header logoUrl="/assets/images/logo.png" navItems={navItems} />
         {children}
         <Footer />

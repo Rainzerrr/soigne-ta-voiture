@@ -1,14 +1,23 @@
+"use client";
 import PackageCard from "@/components/molecules/package-card/package-card";
 import TitleSection from "@/components/molecules/title-section/title-section";
-import React from "react";
+import React, { useEffect } from "react";
 import "./packages.scss";
+import { useRouter } from "next/navigation";
+import { useRendezVous } from "@/contexts/useRendezVous";
 
 const RendezVousPackages = () => {
+  const router = useRouter();
+  const { setCurrentMilestone } = useRendezVous();
+
+  useEffect(() => {
+    setCurrentMilestone(1);
+  }, []);
   return (
     <div className="rendez-vous__packages">
       <TitleSection
         title="CHOIX DU PACKAGE"
-        subtitle="ETAPE 1"
+        subtitle="ÉTAPE 1"
         alignement="center"
         size="default"
       />
@@ -24,7 +33,10 @@ const RendezVousPackages = () => {
           features={[
             "Aspiration en profondeur de tout l’habitacle : sièges, tapis,",
           ]}
-          buttonLabel={"PRENDRE RENDEZ-VOUS"}
+          buttonLabel={"CONTINUER"}
+          onButtonClick={() => {
+            router.push("/rendez-vous/date");
+          }}
           showButton
         />
         <PackageCard
@@ -38,7 +50,10 @@ const RendezVousPackages = () => {
             "Aspiration en profondeur de tout l’habitacle : sièges, tapis,",
             "Nettoyage des plastiques et surfaces (tableau de bord, portes, etc.)",
           ]}
-          buttonLabel={"PRENDRE RENDEZ-VOUS"}
+          buttonLabel={"CONTINUER"}
+          onButtonClick={() => {
+            router.push("/rendez-vous/date");
+          }}
           showButton
         />
         <PackageCard
@@ -53,7 +68,10 @@ const RendezVousPackages = () => {
             "Nettoyage des plastiques et surfaces (tableau de bord, portes, etc.)",
             "Nettoyage en profondeur des sièges avec shampooing.",
           ]}
-          buttonLabel={"PRENDRE RENDEZ-VOUS"}
+          buttonLabel={"CONTINUER"}
+          onButtonClick={() => {
+            router.push("/rendez-vous/date");
+          }}
           showButton
         />
       </div>

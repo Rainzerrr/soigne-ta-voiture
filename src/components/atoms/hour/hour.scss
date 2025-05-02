@@ -1,0 +1,32 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.hour {
+  display: inline-flex;
+  padding: 12px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  background-color: var(--color-primary-500);
+  border-radius: 4px;
+  color: var(--color-dark);
+  font: var(--font-text-medium-12);
+  cursor: pointer;
+}
+
+.hour:hover {
+  background-color: var(--color-primary-700);
+}
+
+@media screen and (min-width: bp.$breakpoint-small) {
+  .hour {
+    font: var(--font-text-medium-14);
+    padding: 12px 20px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .hour {
+    font: var(--font-text-medium-16);
+  }
+}

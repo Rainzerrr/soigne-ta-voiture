@@ -1,0 +1,59 @@
+@use "@/app/breakpoints.scss" as bp;
+
+.rendez-vous__infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.rendez-vous__infos__title-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+}
+
+.rendez-vous__infos__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.rendez-vous__infos__title-section__button-hide {
+  display: none !important;
+}
+@media screen and (min-width: bp.$breakpoint-small) {
+  .rendez-vous__infos {
+    gap: 48px;
+  }
+}
+
+@media screen and (min-width: bp.$breakpoint-medium) {
+  .rendez-vous__infos {
+    gap: 64px;
+    justify-content: flex-end;
+  }
+
+  .rendez-vous__infos__title-section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .rendez-vous__infos__title-section__button-hide {
+    display: unset !important;
+    opacity: 0;
+  }
+
+  .rendez-vous__infos__content {
+    width: 908px;
+    box-sizing: border-box;
+    align-self: center;
+  }
+}

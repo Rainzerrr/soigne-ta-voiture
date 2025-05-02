@@ -63,23 +63,30 @@ const Header: FC<HeaderProps> = ({ logoUrl, navItems }) => {
       </div>
       <div className="header__nav-items">
         {navItems.map((item) => (
-          <NavItem key={item.label} {...item} />
+          <NavItem
+            key={item.label}
+            {...item}
+            onClick={() => {
+              item.onClick();
+              setIsMenuOpened(false);
+            }}
+          />
         ))}
       </div>
       <div className="header__account-btns">
+        {/* <NavItem
+              label="INSCRIPTION"
+              url="/"
+              variant={hasScrolledEnough ? "tertiary" : "secondary"}
+              fullwidth
+              onClick={() => setIsMenuOpened(false)}
+            /> */}
         <NavItem
-          label="INSCRIPTION"
-          url="/"
-          variant="secondary"
-          fullwidth
-          onClick={() => {}}
-        />
-        <NavItem
-          label="CONNEXION"
-          url="/"
+          label="COMMENCER"
+          url="/rendez-vous/packages"
           variant="filled"
           fullwidth
-          onClick={() => {}}
+          onClick={() => setIsMenuOpened(false)}
         />
       </div>
     </div>
@@ -114,16 +121,16 @@ const Header: FC<HeaderProps> = ({ logoUrl, navItems }) => {
           </div>
 
           <div className="header__account-btns show-desktop">
-            <NavItem
+            {/* <NavItem
               label="INSCRIPTION"
               url="/"
               variant={hasScrolledEnough ? "tertiary" : "secondary"}
               fullwidth
               onClick={() => setIsMenuOpened(false)}
-            />
+            /> */}
             <NavItem
-              label="CONNEXION"
-              url="/"
+              label="COMMENCER"
+              url="/rendez-vous/packages"
               variant="filled"
               fullwidth
               onClick={() => setIsMenuOpened(false)}

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import "./milestone.scss";
 import { Icon } from "@/components/atoms/icon/icon";
+import Link from "next/link";
 
 interface MilestoneProps {
   label: string;
@@ -18,22 +19,24 @@ const Milestone: FC<MilestoneProps> = ({
   showSeparator,
 }) => {
   return (
-    <div className={`milestone milestone--${status}`}>
-      <div className="milestone__index">
-        {status === "passed" ? (
-          <Icon name="check" fill="white" stroke="white" />
-        ) : (
-          index
-        )}
-      </div>
-      <span className="milestone__label">{label}</span>
+    <Link href={url ?? "/"}>
+      <div className={`milestone milestone--${status}`}>
+        <div className="milestone__index">
+          {status === "passed" ? (
+            <Icon name="check" fill="white" stroke="white" />
+          ) : (
+            index
+          )}
+        </div>
+        <span className="milestone__label">{label}</span>
 
-      <div
-        className={`milestone__separator milestone__separator--${
-          status == "passed" ? "passed" : ""
-        } milestone__separator--${!showSeparator ? "hide" : ""}`}
-      />
-    </div>
+        <div
+          className={`milestone__separator milestone__separator--${
+            status == "passed" ? "passed" : ""
+          } milestone__separator--${!showSeparator ? "hide" : ""}`}
+        />
+      </div>
+    </Link>
   );
 };
 
