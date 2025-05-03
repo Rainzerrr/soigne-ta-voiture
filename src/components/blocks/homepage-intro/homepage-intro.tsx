@@ -30,7 +30,7 @@ const HomepageIntro = () => {
               label="PRENDRE RENDEZ-VOUS"
               theme="primary"
               fullWidth
-              onClick={() => router.push("/rendez-vous/packages")}
+              onClick={() => router.push("/rendez-vous/packages#milestones")}
             />
 
             <Button
@@ -38,6 +38,7 @@ const HomepageIntro = () => {
               label="PARCOURIR LES OFFRES"
               theme="secondary"
               fullWidth
+              onClick={() => router.push("/packages")}
             />
           </div>
         </div>

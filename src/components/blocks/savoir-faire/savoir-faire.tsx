@@ -39,7 +39,7 @@ const SavoirFaire: FC<SavoirFaireProps> = ({ variant, beforeAfterCards }) => {
               theme="primary"
               fullWidth
               onClick={() => {
-                router.push("/");
+                router.push("/rendez-vous/packages#milestones");
               }}
             />
 

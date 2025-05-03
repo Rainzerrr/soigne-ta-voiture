@@ -13,6 +13,7 @@ interface InputTitleProps {
   icon: string;
   value: string;
   type?: string;
+  isError: boolean;
   placeholder?: string;
   required?: boolean;
   variant?: "input" | "textarea";
@@ -23,6 +24,7 @@ const InputTitle: FC<InputTitleProps> = ({
   title,
   icon,
   value,
+  isError,
   variant = "input",
   type = "text",
   placeholder,
@@ -37,7 +39,7 @@ const InputTitle: FC<InputTitleProps> = ({
       <div
         className={`input-title__input-icon ${
           variant === "textarea" ? "input-textarea-icon" : ""
-        }`}
+        } ${isError ? "input-title--error" : ""}`}
       >
         <Icon className="input-title__icon" name={icon} fill="#E1E1E1" />
         {variant === "textarea" ? (

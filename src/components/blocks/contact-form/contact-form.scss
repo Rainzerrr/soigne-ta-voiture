@@ -8,6 +8,12 @@
   align-self: stretch;
 }
 
+.toast {
+  background-color: green !important;
+  color: var(--color-light) !important;
+  font: var(--font-text-medium-14);
+}
+
 @media screen and (min-width: bp.$breakpoint-small) {
   .contact-form {
     gap: 40px;

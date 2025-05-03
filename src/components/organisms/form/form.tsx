@@ -1,18 +1,28 @@
 "use client";
 import Button from "@/components/molecules/button/button";
 import InputTitle from "@/components/molecules/input-title/input-title";
+import { FC, useRef } from "react";
+import { FormData, FormDataErrors } from "@/contexts/useRendezVous";
 import "./form.scss";
-import { useRef, useState } from "react";
 
-const Form = () => {
-  const [value, setValue] = useState("");
+interface FormProps {
+  buttonLabel: string;
+  formData: FormData;
+  formDataErrors: FormDataErrors;
+  setFormData: (key: keyof FormData, value: string) => void;
+  onSubmit: () => void;
+  isCommentOptional?: boolean;
+}
+
+const Form: FC<FormProps> = ({
+  buttonLabel,
+  formData,
+  formDataErrors,
+  setFormData,
+  onSubmit,
+  isCommentOptional,
+}) => {
   const formRef = useRef<HTMLFormElement>(null);
-
-  const handleSubmit = () => {
-    if (formRef.current) {
-      formRef.current.submit();
-    }
-  };
 
   return (
     <form ref={formRef} className="form">
@@ -21,17 +31,19 @@ const Form = () => {
           title="Nom"
           icon="user"
           placeholder="Votre nom"
-          value={""}
+          value={formData["lastname"]}
+          isError={formDataErrors["lastname"]}
           required
-          onChange={(val) => setValue(val)}
+          onChange={(val) => setFormData("lastname", val)}
         />
         <InputTitle
           title="Prénom"
           placeholder="Votre prénom"
           icon="user"
-          value={""}
+          value={formData["firstname"]}
+          isError={formDataErrors["firstname"]}
           required
-          onChange={(val) => setValue(val)}
+          onChange={(val) => setFormData("firstname", val)}
         />
       </div>
       <div className="form__contact">
@@ -39,17 +51,19 @@ const Form = () => {
           title="Email"
           placeholder="Votre email"
           icon="email"
-          value={""}
+          value={formData["email"]}
+          isError={formDataErrors["email"]}
           required
-          onChange={(val) => setValue(val)}
+          onChange={(val) => setFormData("email", val)}
         />
         <InputTitle
           title="Téléphone"
           placeholder="Votre numéro de téléphone"
           icon="tel"
-          value={""}
+          value={formData["tel"]}
+          isError={formDataErrors["tel"]}
           required
-          onChange={(val) => setValue(val)}
+          onChange={(val) => setFormData("tel", val)}
         />
       </div>
 
@@ -57,12 +71,14 @@ const Form = () => {
         title="Commentaires"
         icon="message"
         placeholder="Vos commentaires ici"
-        value={value}
+        value={formData["comment"]}
+        isError={formDataErrors["comment"]}
         variant="textarea"
-        onChange={(val) => setValue(val)}
+        required={!isCommentOptional}
+        onChange={(val) => setFormData("comment", val)}
       />
 
-      <Button onClick={handleSubmit} label="ENVOYER " theme="primary" />
+      <Button onClick={onSubmit} label={buttonLabel} theme="primary" />
     </form>
   );
 };

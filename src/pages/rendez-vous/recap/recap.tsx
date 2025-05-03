@@ -7,9 +7,11 @@ import { useRendezVous } from "@/contexts/useRendezVous";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { packages } from "@/data/packages";
+import { formatDate } from "@/utils/page-wrapper/formatters/format-time";
 
 const RendezVousRecap = () => {
-  const { setCurrentMilestone } = useRendezVous();
+  const { setCurrentMilestone, formData, pack, date } = useRendezVous();
   const router = useRouter();
 
   useEffect(() => {
@@ -22,7 +24,7 @@ const RendezVousRecap = () => {
           theme="quartery"
           label="étape précédente"
           leftIcon="chevron-left"
-          onClick={() => router.push("/rendez-vous/infos")}
+          onClick={() => router.push("/rendez-vous/infos#milestones")}
         />
         <TitleSection
           title="RÉCAPITULATIF"
@@ -42,18 +44,7 @@ const RendezVousRecap = () => {
           <span className="rendez-vous__recap__content__infos__title">
             Choix du package :
           </span>
-          <PackageCard
-            theme="basic"
-            badgeLabel="Basic"
-            badgeColor="gray"
-            title="Bandage"
-            price={30}
-            imageUrl={"/assets/images/package-card-image.png"}
-            features={[
-              "Aspiration en profondeur de tout l’habitacle : sièges, tapis,",
-            ]}
-            buttonLabel={"PRENDRE RENDEZ-VOUS"}
-          />
+          <PackageCard {...packages[pack != "" ? pack : "basic"]} />
         </div>
         <div className="rendez-vous__recap__content__form-date">
           <div className="rendez-vous__recap__content__date">
@@ -61,7 +52,7 @@ const RendezVousRecap = () => {
               Date & Heure :
             </span>
             <span className="rendez-vous__recap__content__infos__date__label">
-              Lundi 24 Janvier 2025 - 00h00
+              {formatDate(date)}
             </span>
           </div>
           <div className="rendez-vous__recap__content__infos-section">
@@ -75,7 +66,7 @@ const RendezVousRecap = () => {
                     Nom :
                   </span>
                   <span className="rendez-vous__recap__content__infos__value">
-                    Votre nom
+                    {formData["lastname"]}
                   </span>
                 </div>
                 <div className="rendez-vous__recap__content__infos__item">
@@ -83,7 +74,7 @@ const RendezVousRecap = () => {
                     Prénom :
                   </span>
                   <span className="rendez-vous__recap__content__infos__value">
-                    Votre prénom
+                    {formData["firstname"]}
                   </span>
                 </div>
               </div>
@@ -94,7 +85,7 @@ const RendezVousRecap = () => {
                     Email :
                   </span>
                   <span className="rendez-vous__recap__content__infos__value">
-                    Votre email
+                    {formData["email"]}
                   </span>
                 </div>
                 <div className="rendez-vous__recap__content__infos__item">
@@ -102,7 +93,7 @@ const RendezVousRecap = () => {
                     Téléphone :
                   </span>
                   <span className="rendez-vous__recap__content__infos__value">
-                    Votre téléphone
+                    {formData["tel"]}
                   </span>
                 </div>
               </div>
@@ -111,7 +102,9 @@ const RendezVousRecap = () => {
                 <span className="rendez-vous__recap__content__infos__label">
                   Commentaire :
                 </span>
-                <p className="rendez-vous__recap__content__infos__value">/</p>
+                <p className="rendez-vous__recap__content__infos__value">
+                  {formData["comment"] ?? "/"}
+                </p>
               </div>
             </div>
           </div>
@@ -120,7 +113,7 @@ const RendezVousRecap = () => {
             theme="primary"
             label="FINALISER MON RENDEZ-VOUS"
             fullWidth
-            onClick={() =>
+            onClick={() => {
               toast(
                 "Votre rendez vous a été programmé, un membre de l'équipe vous appelera prochainement !",
                 {
@@ -129,8 +122,9 @@ const RendezVousRecap = () => {
                   className: "toast",
                   position: "top-right",
                 }
-              )
-            }
+              );
+              router.push("/");
+            }}
           />
         </div>
       </div>

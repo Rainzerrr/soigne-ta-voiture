@@ -10,6 +10,8 @@ import { useRendezVous } from "@/contexts/useRendezVous";
 import "./date.scss";
 import { useRouter } from "next/navigation";
 import { HourProps } from "@/components/atoms/hour/hour";
+import { packages } from "@/data/packages";
+import { useSearchParams } from "next/navigation";
 
 interface RendezVousDateTemplateProps {
   // dates: RendezVousHoursProps[];
@@ -17,8 +19,9 @@ interface RendezVousDateTemplateProps {
 
 const RendezVousDate: FC<RendezVousDateTemplateProps> = () => {
   const router = useRouter();
+  const { pack, setPack } = useRendezVous();
   const days: { hours: HourProps[] }[] = Array.from(
-    { length: 10 },
+    { length: 20 },
     (_, dayIndex) => {
       const today = new Date();
       const baseDate = new Date(
@@ -37,7 +40,9 @@ const RendezVousDate: FC<RendezVousDateTemplateProps> = () => {
 
         return {
           hour: date,
-          onClick: () => router.push("/rendez-vous/infos"),
+          onClick: () => {
+            router.push("/rendez-vous/infos#milestones");
+          },
         };
       });
 
@@ -45,8 +50,13 @@ const RendezVousDate: FC<RendezVousDateTemplateProps> = () => {
     }
   );
   const { setCurrentMilestone } = useRendezVous();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
+    const packParam = searchParams?.get("package");
+    if (packParam) {
+      setPack(packParam);
+    }
     setCurrentMilestone(2);
   }, []);
   return (
@@ -56,7 +66,7 @@ const RendezVousDate: FC<RendezVousDateTemplateProps> = () => {
           theme="quartery"
           label="étape précédente"
           leftIcon="chevron-left"
-          onClick={() => router.push("/rendez-vous/packages")}
+          onClick={() => router.push("/rendez-vous/packages#milestones")}
         />
         <TitleSection
           title="CHOIX DE LA DATE"
@@ -76,18 +86,7 @@ const RendezVousDate: FC<RendezVousDateTemplateProps> = () => {
           <span className="rendez-vous__date__content__package-label">
             PACKAGE SÉLECTIONNÉ :
           </span>
-          <PackageCard
-            theme="basic"
-            badgeLabel="Basic"
-            badgeColor="gray"
-            title="Bandage"
-            price={30}
-            imageUrl={"/assets/images/package-card-image.png"}
-            features={[
-              "Aspiration en profondeur de tout l’habitacle : sièges, tapis,",
-            ]}
-            buttonLabel={"PRENDRE RENDEZ-VOUS"}
-          />
+          {pack && <PackageCard {...packages[pack]} />}
         </div>
         <div className="rendez-vous__date__content__dates">
           {days.map((date: RendezVousHoursProps) => (

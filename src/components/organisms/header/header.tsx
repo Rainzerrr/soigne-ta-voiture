@@ -83,7 +83,7 @@ const Header: FC<HeaderProps> = ({ logoUrl, navItems }) => {
             /> */}
         <NavItem
           label="COMMENCER"
-          url="/rendez-vous/packages"
+          url="/rendez-vous/packages#milestones"
           variant="filled"
           fullwidth
           onClick={() => setIsMenuOpened(false)}
@@ -130,7 +130,7 @@ const Header: FC<HeaderProps> = ({ logoUrl, navItems }) => {
             /> */}
             <NavItem
               label="COMMENCER"
-              url="/rendez-vous/packages"
+              url="/rendez-vous/packages#milestones"
               variant="filled"
               fullwidth
               onClick={() => setIsMenuOpened(false)}

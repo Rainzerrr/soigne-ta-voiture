@@ -69,6 +69,7 @@ const page = () => {
           placeholder="Votre nom"
           value={value}
           onChange={(value: string) => setValue(value)}
+          isError
         />
       </div>
     </div>

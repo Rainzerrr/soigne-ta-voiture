@@ -71,3 +71,4 @@ const PackageCard: FC<PackageCardProps> = ({
 };
 
 export default PackageCard;
+export type { PackageCardProps };

@@ -2,6 +2,7 @@
 import Hour, { HourProps } from "@/components/atoms/hour/hour";
 import { Icon } from "@/components/atoms/icon/icon";
 import { FC, useState } from "react";
+import { useRendezVous } from "@/contexts/useRendezVous";
 import "./rendez-vous-hours.scss";
 
 interface RendezVousHoursProps {
@@ -9,6 +10,7 @@ interface RendezVousHoursProps {
 }
 
 const RendezVousHours: FC<RendezVousHoursProps> = ({ hours }) => {
+  const { setDate } = useRendezVous();
   const [isOpened, setIsOpened] = useState(false);
   return (
     <div className="hours-dropdown">
@@ -31,7 +33,14 @@ const RendezVousHours: FC<RendezVousHoursProps> = ({ hours }) => {
         }`}
       >
         {hours.map((hour: HourProps) => (
-          <Hour key={hour.hour.toString()} {...hour} />
+          <Hour
+            key={hour.hour.toString()}
+            {...hour}
+            onClick={() => {
+              setDate(hour.hour);
+              hour.onClick();
+            }}
+          />
         ))}
       </div>
     </div>

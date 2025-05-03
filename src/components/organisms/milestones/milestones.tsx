@@ -21,7 +21,7 @@ const Milestones: FC<MilestonesProps> = ({ milestones, currentMilestone }) => {
   };
 
   return (
-    <div className="milestones">
+    <div id="milestones" className="milestones">
       {milestones.map((milestone: MilestoneProps, index: number) => (
         <Fragment key={milestone.label}>
           <Milestone

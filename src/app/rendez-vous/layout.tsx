@@ -29,25 +29,21 @@ const RendezVousLayout: FC<RendezVousLayoutProps> = ({ children }) => {
                 index: 1,
                 label: "Choix du package",
                 status: "next",
-                url: "/rendez-vous/packages",
               },
               {
                 index: 2,
                 label: "Date & Heure",
                 status: "next",
-                url: "/rendez-vous/date",
               },
               {
                 index: 3,
                 label: "Informations",
                 status: "next",
-                url: "/rendez-vous/infos",
               },
               {
                 index: 4,
                 label: "Récapitulatif",
                 status: "next",
-                url: "/rendez-vous/recap",
               },
             ]}
           />
