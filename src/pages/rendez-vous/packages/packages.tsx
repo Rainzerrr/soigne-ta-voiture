@@ -1,7 +1,5 @@
 "use client";
-import PackageCard, {
-  PackageCardProps,
-} from "@/components/molecules/package-card/package-card";
+import PackageCard from "@/components/molecules/package-card/package-card";
 import TitleSection from "@/components/molecules/title-section/title-section";
 import React, { useEffect } from "react";
 import "./packages.scss";
@@ -30,11 +28,11 @@ const RendezVousPackages = () => {
           <PackageCard
             key={key}
             {...pack}
-            showButton
             onButtonClick={() => {
               setPack(key);
               router.push("/rendez-vous/date#milestones");
             }}
+            showButton
           />
         ))}
       </div>
