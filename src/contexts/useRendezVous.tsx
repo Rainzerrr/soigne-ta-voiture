@@ -29,6 +29,8 @@ interface RendezVousContextType {
   setPack: (value: string) => void;
   date: Date;
   setDate: (date: Date) => void;
+  eventId: string;
+  setEventId: (eventId: string) => void;
   validateFormData: (formData: FormData) => boolean;
 }
 
@@ -55,6 +57,8 @@ const RendezVousContext = createContext<RendezVousContextType>({
   setPack: () => null,
   date: new Date(),
   setDate: () => null,
+  eventId: "",
+  setEventId: () => null,
   validateFormData: () => true,
 });
 
@@ -87,6 +91,7 @@ export const RendezVousProvider = ({
 
   const [selectedPack, setSelectedPack] = useState<string>("");
   const [date, setDate] = useState<Date>(new Date());
+  const [eventId, setEventId] = useState("");
 
   const updateFormDataErrors = (key: keyof FormData, value: boolean) => {
     setFormDataErrors((prev) => ({ ...prev, [key]: value }));
@@ -139,6 +144,8 @@ export const RendezVousProvider = ({
         validateFormData,
         date,
         setDate,
+        eventId,
+        setEventId,
       }}
     >
       {children}

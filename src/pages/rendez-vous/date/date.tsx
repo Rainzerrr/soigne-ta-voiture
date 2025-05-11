@@ -9,46 +9,57 @@ import RendezVousHours, {
 import { useRendezVous } from "@/contexts/useRendezVous";
 import "./date.scss";
 import { useRouter } from "next/navigation";
-import { HourProps } from "@/components/atoms/hour/hour";
+import { EventHourProps } from "@/components/atoms/hour/hour";
 import { packages } from "@/data/packages";
 import { useSearchParams } from "next/navigation";
 
 interface RendezVousDateTemplateProps {
-  // dates: RendezVousHoursProps[];
+  events: EventHourProps[];
 }
 
-const RendezVousDate: FC<RendezVousDateTemplateProps> = () => {
+const RendezVousDate: FC<RendezVousDateTemplateProps> = ({ events = [] }) => {
   const router = useRouter();
   const { pack, setPack } = useRendezVous();
-  const days: { hours: HourProps[] }[] = Array.from(
-    { length: 20 },
-    (_, dayIndex) => {
-      const today = new Date();
-      const baseDate = new Date(
-        today.getFullYear(),
-        today.getMonth(),
-        today.getDate() + dayIndex
-      );
+  const groupEventsByDay = (
+    events: EventHourProps[]
+  ): RendezVousHoursProps[] => {
+    const groupedEvents: RendezVousHoursProps[] = [];
 
-      const hours: HourProps[] = Array.from({ length: 6 }, (_, i) => {
-        const date = new Date(
-          baseDate.getFullYear(),
-          baseDate.getMonth(),
-          baseDate.getDate(),
-          8 + i * 2
-        );
+    events.forEach((event) => {
+      const eventDate = new Date(event.startHour);
 
-        return {
-          hour: date,
+      const existingGroup = groupedEvents.find((group) => {
+        const groupDate = new Date(group.events[0].startHour);
+        return groupDate.toDateString() === eventDate.toDateString();
+      });
+
+      event.startHour = new Date(event.startHour);
+      event.endHour = new Date(event.endHour);
+
+      if (!existingGroup) {
+        groupedEvents.push({
+          events: [
+            {
+              ...event,
+              onClick: () => {
+                router.push("/rendez-vous/infos#milestones");
+              },
+            },
+          ],
+        });
+      } else {
+        existingGroup.events.push({
+          ...event,
           onClick: () => {
             router.push("/rendez-vous/infos#milestones");
           },
-        };
-      });
+        });
+      }
+    });
 
-      return { hours };
-    }
-  );
+    return groupedEvents;
+  };
+
   const { setCurrentMilestone } = useRendezVous();
   const searchParams = useSearchParams();
 
@@ -89,8 +100,11 @@ const RendezVousDate: FC<RendezVousDateTemplateProps> = () => {
           {pack && <PackageCard {...packages[pack]} />}
         </div>
         <div className="rendez-vous__date__content__dates">
-          {days.map((date: RendezVousHoursProps) => (
-            <RendezVousHours key={date.hours[0].hour.toString()} {...date} />
+          {groupEventsByDay(events).map((dayEvents: RendezVousHoursProps) => (
+            <RendezVousHours
+              key={dayEvents.events[0].startHour.toString()}
+              {...dayEvents}
+            />
           ))}
         </div>
       </div>

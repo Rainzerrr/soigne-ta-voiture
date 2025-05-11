@@ -17,6 +17,7 @@ interface PackageCardProps {
   buttonLabel: string;
   showButton?: boolean;
   onButtonClick?: Function;
+  colorId: string;
 }
 
 const PackageCard: FC<PackageCardProps> = ({

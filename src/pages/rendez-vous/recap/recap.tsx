@@ -2,21 +2,55 @@
 import Button from "@/components/molecules/button/button";
 import TitleSection from "@/components/molecules/title-section/title-section";
 import PackageCard from "@/components/molecules/package-card/package-card";
-import "./recap.scss";
 import { useRendezVous } from "@/contexts/useRendezVous";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { packages } from "@/data/packages";
 import { formatDate } from "@/utils/page-wrapper/formatters/format-time";
+import axios from "axios";
+import "./recap.scss";
 
 const RendezVousRecap = () => {
-  const { setCurrentMilestone, formData, pack, date } = useRendezVous();
+  const { setCurrentMilestone, formData, pack, date, eventId } =
+    useRendezVous();
   const router = useRouter();
 
   useEffect(() => {
     setCurrentMilestone(4);
   }, []);
+
+  const createRendezVous = async () => {
+    const endDate = new Date(date);
+    endDate.setHours(endDate.getHours() + 2);
+    const event = {
+      summary:
+        packages[pack].title +
+        " - " +
+        formData.firstname +
+        " " +
+        formData.lastname,
+      location: "Paris",
+      start: {
+        dateTime: date.toISOString(),
+        timeZone: "Europe/Paris",
+      },
+      end: {
+        dateTime: endDate.toISOString(),
+        timeZone: "Europe/Paris",
+      },
+      colorId: packages[pack].colorId,
+      eventId: eventId,
+      description: `Téléphone : ${formData.tel}\nEmail : ${formData.email}\nCommentaire : ${formData.comment}`,
+    };
+    try {
+      const response = await axios.post("/api/create-event", event);
+      router.push("/");
+    } catch (error) {
+      console.error("Erreur lors de la création de l'événement :", error);
+    }
+  };
+
   return (
     <div className="rendez-vous__recap">
       <div className="rendez-vous__recap__title-section">
@@ -114,6 +148,7 @@ const RendezVousRecap = () => {
             label="FINALISER MON RENDEZ-VOUS"
             fullWidth
             onClick={() => {
+              createRendezVous();
               toast(
                 "Votre rendez vous a été programmé, un membre de l'équipe vous appelera prochainement !",
                 {
@@ -123,7 +158,7 @@ const RendezVousRecap = () => {
                   position: "top-right",
                 }
               );
-              router.push("/");
+              // router.push("/");
             }}
           />
         </div>

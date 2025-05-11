@@ -1,12 +1,19 @@
-import RendezVousDate from "@/pages/rendez-vous/date/date";
 import { Suspense } from "react";
+import { EventHourProps } from "@/components/atoms/hour/hour";
+import RendezVousDate from "@/pages/rendez-vous/date/date";
+import { getEvents } from "@/lib/getEvents";
 
-const page = () => {
+const RendezVousDateWrapper = ({ events }: { events: EventHourProps[] }) => {
+  return <RendezVousDate events={events} />;
+};
+
+const Page = async () => {
+  const events = await getEvents();
   return (
-    <Suspense>
-      <RendezVousDate />
+    <Suspense fallback={<div>Chargement...</div>}>
+      <RendezVousDate events={events} />
     </Suspense>
   );
 };
 
-export default page;
+export default Page;

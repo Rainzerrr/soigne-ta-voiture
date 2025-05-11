@@ -10,6 +10,7 @@ export const packages: Record<string, PackageCardProps> = {
     imageUrl: "/assets/images/package-card-image.png",
     features: ["Aspiration en profondeur de tout l’habitacle : sièges, tapis,"],
     buttonLabel: "CONTINUER",
+    colorId: "1",
   },
   standard: {
     theme: "standard",
@@ -23,6 +24,7 @@ export const packages: Record<string, PackageCardProps> = {
       "Nettoyage des plastiques et surfaces (tableau de bord, portes, etc.)",
     ],
     buttonLabel: "CONTINUER",
+    colorId: "5",
   },
   premium: {
     theme: "premium",
@@ -37,5 +39,6 @@ export const packages: Record<string, PackageCardProps> = {
       "Nettoyage en profondeur des sièges avec shampooing.",
     ],
     buttonLabel: "CONTINUER",
+    colorId: "8",
   },
 };

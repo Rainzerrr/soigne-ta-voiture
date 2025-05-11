@@ -1,16 +1,16 @@
 "use client";
-import Hour, { HourProps } from "@/components/atoms/hour/hour";
+import Hour, { EventHourProps } from "@/components/atoms/hour/hour";
 import { Icon } from "@/components/atoms/icon/icon";
 import { FC, useState } from "react";
 import { useRendezVous } from "@/contexts/useRendezVous";
 import "./rendez-vous-hours.scss";
 
 interface RendezVousHoursProps {
-  hours: HourProps[];
+  events: EventHourProps[];
 }
 
-const RendezVousHours: FC<RendezVousHoursProps> = ({ hours }) => {
-  const { setDate } = useRendezVous();
+const RendezVousHours: FC<RendezVousHoursProps> = ({ events }) => {
+  const { setDate, setEventId } = useRendezVous();
   const [isOpened, setIsOpened] = useState(false);
   return (
     <div className="hours-dropdown">
@@ -19,7 +19,7 @@ const RendezVousHours: FC<RendezVousHoursProps> = ({ hours }) => {
         className="hours-dropdown__date-chevron"
       >
         <span className="hours-dropdown__date">
-          {hours[0].hour.toLocaleDateString("fr-FR", {
+          {events[0].startHour.toLocaleDateString("fr-FR", {
             day: "numeric",
             month: "long",
             year: "numeric",
@@ -32,13 +32,14 @@ const RendezVousHours: FC<RendezVousHoursProps> = ({ hours }) => {
           isOpened ? "hours-dropdown__hours--opened" : ""
         }`}
       >
-        {hours.map((hour: HourProps) => (
+        {events.map((event: EventHourProps) => (
           <Hour
-            key={hour.hour.toString()}
-            {...hour}
+            key={event.startHour.toString()}
+            {...event}
             onClick={() => {
-              setDate(hour.hour);
-              hour.onClick();
+              setDate(event.startHour);
+              setEventId(event.id);
+              event.onClick();
             }}
           />
         ))}

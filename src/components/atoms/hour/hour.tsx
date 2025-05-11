@@ -1,18 +1,23 @@
 import { FC } from "react";
 import "./hour.scss";
 
-interface HourProps {
-  hour: Date;
+interface EventHourProps {
+  id: string;
+  startHour: Date;
+  endHour: Date;
   onClick: () => void;
 }
 
-const Hour: FC<HourProps> = ({ hour, onClick }) => {
+const Hour: FC<EventHourProps> = ({ id, startHour, endHour, onClick }) => {
   return (
     <div onClick={onClick} className="hour">
-      {hour.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}
+      {startHour.toLocaleTimeString("fr-FR", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })}
     </div>
   );
 };
 
 export default Hour;
-export type { HourProps };
+export type { EventHourProps };

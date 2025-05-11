@@ -1,9 +1,12 @@
 "use client";
-import PackageCard from "@/components/molecules/package-card/package-card";
+import PackageCard, {
+  PackageCardProps,
+} from "@/components/molecules/package-card/package-card";
 import TitleSection from "@/components/molecules/title-section/title-section";
 import React from "react";
 import "./packages.scss";
 import { useRouter } from "next/navigation";
+import { packages } from "@/data/packages";
 
 const Packages = () => {
   const router = useRouter();
@@ -24,57 +27,9 @@ const Packages = () => {
       </div>
 
       <div className="packages-section__packages">
-        <PackageCard
-          theme="basic"
-          badgeLabel="Basic"
-          badgeColor="gray"
-          title="Bandage"
-          price={30}
-          imageUrl={"/assets/images/package-card-image.png"}
-          features={[
-            "Aspiration en profondeur de tout l’habitacle : sièges, tapis,",
-          ]}
-          buttonLabel={"PRENDRE RENDEZ-VOUS"}
-          showButton
-          onButtonClick={() =>
-            router.push("/rendez-vous/date?package=basic#milestones")
-          }
-        />
-        <PackageCard
-          theme="standard"
-          badgeLabel="Standard"
-          badgeColor="gold"
-          title="Kit de soin"
-          price={50}
-          imageUrl={"/assets/images/package-card-image.png"}
-          features={[
-            "Aspiration en profondeur de tout l’habitacle : sièges, tapis,",
-            "Nettoyage des plastiques et surfaces (tableau de bord, portes, etc.)",
-          ]}
-          buttonLabel={"PRENDRE RENDEZ-VOUS"}
-          showButton
-          onButtonClick={() =>
-            router.push("/rendez-vous/date?package=standard#milestones")
-          }
-        />
-        <PackageCard
-          theme="premium"
-          badgeLabel="Premium"
-          badgeColor="black"
-          title="Chirurgie esthétique"
-          price={60}
-          imageUrl={"/assets/images/package-card-image.png"}
-          features={[
-            "Aspiration en profondeur de tout l’habitacle : sièges, tapis,",
-            "Nettoyage des plastiques et surfaces (tableau de bord, portes, etc.)",
-            "Nettoyage en profondeur des sièges avec shampooing.",
-          ]}
-          buttonLabel={"PRENDRE RENDEZ-VOUS"}
-          showButton
-          onButtonClick={() =>
-            router.push("/rendez-vous/date?package=premium#milestones")
-          }
-        />
+        {Object.values(packages).map((pkg: PackageCardProps) => (
+          <PackageCard key={pkg.title} {...pkg} />
+        ))}
       </div>
     </div>
   );

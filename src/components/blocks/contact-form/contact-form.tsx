@@ -50,7 +50,6 @@ const ContactForm = () => {
   };
 
   const validateFormData = (formData: FormData) => {
-    console.log(!formData.firstname);
     const errors: Partial<FormDataErrors> = {};
 
     if (!formData.firstname.trim()) {
@@ -73,11 +72,8 @@ const ContactForm = () => {
       errors.comment = true;
     }
 
-    console.log(formDataErrors);
-
     // Met à jour les erreurs
     Object.entries(errors).forEach(([key, hasError]) => {
-      console.log(key, hasError);
       handleChangeFormDataErrors(key as keyof FormDataErrors, hasError);
     });
 
