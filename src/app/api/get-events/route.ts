@@ -17,10 +17,8 @@ export const GET = async (req: NextRequest) => {
     // Authentification via le compte de service Google
     const auth = new JWT({
       email: process.env.CALENDAR_EMAIL,
-      key: Buffer.from(
-        [process.env.CALENDAR_PRIVATE_KEY].join("\n"),
-        "base64"
-      ).toString("utf-8"),
+      key: process.env.CALENDAR_PRIVATE_KEY!.replace(/\\n/g, "\n"),
+
       scopes: ["https://www.googleapis.com/auth/calendar.readonly"],
     });
 

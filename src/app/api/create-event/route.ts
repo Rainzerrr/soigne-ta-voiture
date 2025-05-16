@@ -24,7 +24,7 @@ export const POST = async (req: NextRequest) => {
     const event: Event = body;
     const auth = new JWT({
       email: process.env.CALENDAR_EMAIL,
-      key: [process.env.CALENDAR_PRIVATE_KEY].join("\n"),
+      key: process.env.CALENDAR_PRIVATE_KEY!.replace(/\\n/g, "\n"),
       scopes: ["https://www.googleapis.com/auth/calendar"],
     });
 
