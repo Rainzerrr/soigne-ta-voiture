@@ -5,7 +5,11 @@ import { NextRequest } from "next/server";
 export const GET = async (req: NextRequest) => {
   console.log("calendar id : ", process.env.CALENDAR_ID);
   console.log("calendar email : ", process.env.CALENDAR_EMAIL);
-  console.log("calendar private key : ", process.env.CALENDAR_PRIVATE_KEY);
+  console.log(
+    "calendar private key : ",
+    process.env.CALENDAR_PRIVATE_KEY,
+    process.env.CALENDAR_PRIVATE_KEY!.replace(/\\n/g, "\n")
+  );
   console.log("base url : ", process.env.BASE_URL);
   try {
     // Obtenir la date et l'heure actuelles
