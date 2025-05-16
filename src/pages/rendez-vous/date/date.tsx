@@ -70,6 +70,7 @@ const RendezVousDate: FC<RendezVousDateTemplateProps> = ({ events = [] }) => {
     }
     setCurrentMilestone(2);
   }, []);
+
   return (
     <div className="rendez-vous__date">
       <div className="rendez-vous__date__title-section">
@@ -100,6 +101,11 @@ const RendezVousDate: FC<RendezVousDateTemplateProps> = ({ events = [] }) => {
           {pack && <PackageCard {...packages[pack]} />}
         </div>
         <div className="rendez-vous__date__content__dates">
+          {events.length == 0 && (
+            <span className="rendez-vous__date__content__package-label">
+              Aucune date disponible
+            </span>
+          )}
           {groupEventsByDay(events).map((dayEvents: RendezVousHoursProps) => (
             <RendezVousHours
               key={dayEvents.events[0].startHour.toString()}

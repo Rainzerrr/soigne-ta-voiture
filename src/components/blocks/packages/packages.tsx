@@ -1,15 +1,16 @@
 "use client";
-import PackageCard, {
-  PackageCardProps,
-} from "@/components/molecules/package-card/package-card";
+import PackageCard from "@/components/molecules/package-card/package-card";
 import TitleSection from "@/components/molecules/title-section/title-section";
 import React from "react";
 import "./packages.scss";
 import { useRouter } from "next/navigation";
 import { packages } from "@/data/packages";
+import { useRendezVous } from "@/contexts/useRendezVous";
 
 const Packages = () => {
   const router = useRouter();
+  const { setPack } = useRendezVous();
+
   return (
     <div className="packages-section">
       <div className="packages-section__title-section">
@@ -27,8 +28,18 @@ const Packages = () => {
       </div>
 
       <div className="packages-section__packages">
-        {Object.values(packages).map((pkg: PackageCardProps) => (
-          <PackageCard key={pkg.title} {...pkg} />
+        {Object.entries(packages).map(([key, pack]) => (
+          <PackageCard
+            key={key}
+            {...pack}
+            onButtonClick={() => {
+              if (pack.theme) {
+                setPack(pack.theme);
+                router.push("/rendez-vous/date#milestones");
+              }
+            }}
+            showButton
+          />
         ))}
       </div>
     </div>
